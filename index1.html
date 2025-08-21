@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Interview | NORVIA</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+
+  <style>
+    :root {
+      --norvia-blue:#0a2463; --norvia-red:#fb3640; --norvia-accent:#00a6fb;
+      --norvia-dark:#1e1e24; --norvia-light:#f8f9fa;
+    }
+    .company-logo{height:80px;width:auto;object-fit:contain}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
+    body{
+      background-color:var(--norvia-dark);color:var(--norvia-light);line-height:1.6;overflow-x:hidden;
+      background-image:
+        radial-gradient(circle at 25% 25%, rgba(10,36,99,.8) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(251,54,64,.6) 0%, transparent 50%);
+      background-attachment:fixed;
+    }
+    #app{max-width:1200px;margin:0 auto;padding:2rem;position:relative}
+    .cyber-border{position:fixed;inset:0;pointer-events:none;z-index:1000;border:2px solid var(--norvia-accent);
+      box-shadow:0 0 15px rgba(0,166,251,.5);animation:borderPulse 8s infinite}
+    @keyframes borderPulse{0%{opacity:.3}50%{opacity:.7}100%{opacity:.3}}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;padding-bottom:1rem;
+      border-bottom:1px solid rgba(0,166,251,.3);position:relative}
+    .logo{display:flex;flex-direction:column;align-items:flex-start;gap:.5rem}
+    .logo .tagline{font-size:.9rem;color:rgba(248,249,250,.7);letter-spacing:1px}
+    .progress-container{width:100%;height:4px;background:rgba(248,249,250,.1);margin:2rem 0;border-radius:2px}
+    .progress-bar{height:100%;background:linear-gradient(90deg,var(--norvia-red),var(--norvia-accent));
+      border-radius:2px;transition:width .5s ease;width:0%}
+    .page{
+      background:rgba(30,30,36,.8);backdrop-filter:blur(10px);border-radius:12px;padding:2.5rem;margin-bottom:2rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.3);border:1px solid rgba(0,166,251,.1);display:none;position:relative;overflow:hidden
+    }
+    .page::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+      background:linear-gradient(90deg,var(--norvia-red),var(--norvia-accent))}
+    .active-page{display:block;animation:fadeIn .5s ease-out}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    h1{font-size:1.8rem;margin-bottom:1.5rem;color:var(--norvia-light);position:relative;padding-bottom:.5rem}
+    h1::after{content:'';position:absolute;bottom:0;left:0;width:50px;height:3px;background:var(--norvia-accent)}
+    p{margin-bottom:1rem;color:rgba(248,249,250,.9);line-height:1.7}
+    ul{list-style:none;padding-left:1.5rem;margin-bottom:1.5rem}
+    ul li, ol li{position:relative;margin-bottom:.5rem}
+    ul li::before{content:'→';color:var(--norvia-accent);position:absolute;left:-1.5rem}
+    ol{list-style:decimal;padding-left:1.5rem}
+    strong{color:var(--norvia-accent);font-weight:600}
+    .btn{
+      background:linear-gradient(135deg,var(--norvia-accent) 0%,#0582ca 100%);color:#fff;border:0;padding:12px 24px;
+      border-radius:30px;cursor:pointer;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;
+      margin-top:1.5rem;transition:all .3s ease;box-shadow:0 4px 15px rgba(0,166,251,.3);position:relative;overflow:hidden
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,166,251,.4)}
+    .btn:active{transform:translateY(0)}
+    .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.2),transparent);
+      transform:translateY(100%);transition:transform .3s ease}
+    .btn:hover::after{transform:translateY(0)}
+    @media (max-width:768px){#app{padding:1rem}}
+  </style>
+</head>
+<body>
+  <div class="cyber-border"></div>
+  <div id="app">
+    <header>
+      <div class="logo">
+        <img src="NorviaLogo.png" alt="NORVIA Logo" class="company-logo"/>
+        <div class="tagline">Human Potential - Data-Driven.</div>
+      </div>
+      <!-- (Status indicator removed to keep the page simple) -->
+    </header>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Page 1: Welcome -->
+    <div class="page active-page" id="page1">
+      <h1>Welcome to NORVIA – Testing Innovative Approaches to Recruitment</h1>
+      <p>You have applied for the position <strong>"Talent Acquisition &amp; AI Integration Recruiter"</strong> at NORVIA – congratulations!</p>
+      <p style="font-style:italic;color:#aaa;">
+        Hint: The job description for the position you applied for can be found in the plastic sleeve labeled with the number 1 on your desk. Please read it carefully to get some context.
+      </p>
+      <p>We are a Scandinavian, global leader in digital HR technology. At NORVIA, we believe in combining human expertise with technology to shape the future of recruiting.</p>
+      <p>As part of testing our new hiring guidelines, we are using a video interview format. Your video will be reviewed shortly after recording by a member of NORVIA’s recruiting team.</p>
+      <button class="btn" onclick="nextPage()">Continue</button>
+    </div>
+
+    <!-- Page 2: Your Interview Session at NORVIA -->
+    <div class="page" id="page2">
+      <h1>Your Interview Session at NORVIA</h1>
+      <p>As part of testing NORVIA’s new hiring guidelines, your video will be reviewed by a recruiter from our team shortly after you record it.</p>
+      <p>The goal is to make the process fair, clear, and the same for everyone. Each candidate is evaluated under the same conditions.</p>
+      <p>During your interview, the recruiter will look at key aspects of your answers to understand how you might fit the role at NORVIA.</p>
+
+      <p>Specifically, the recruiter will focus on:</p>
+      <ul>
+        <li><strong>Your answers</strong> – how you present your strengths, motivation, and fit for NORVIA</li>
+        <li><strong>Your communication</strong> – fluency, tone, and pacing</li>
+        <li><strong>Your behavior</strong> – eye contact, expression, and posture</li>
+        <li><strong>Your presence</strong> – how confident and authentic you appear</li>
+      </ul>
+      <button class="btn" onclick="nextPage()">Continue</button>
+    </div>
+
+    <!-- Page 3: What to Expect -->
+    <div class="page" id="page3">
+      <h1>What to Expect</h1>
+
+      <p>Your interview at NORVIA consists of two parts:</p>
+      <ol>
+        <li>
+          <strong>Self-introduction (1 minute)</strong><br/>
+          Please pitch yourself freely and authentically to your recruiter. This is your opportunity to showcase your background, motivation, and personal strengths.
+        </li>
+        <li>
+          <strong>Spontaneous interview questions (3 × 1 minute)</strong><br/>
+          You will then be asked three questions from your recruiter. These are designed to get an impression of your personality, including your strengths and weaknesses. Please answer them spontaneously and honestly.
+        </li>
+      </ol>
+
+      <p>You may complete the interview in German or English, depending on what you feel most comfortable with – our recruiters are fluent in both languages.</p>
+
+      <ul>
+        <li>While you complete the interview, we will record your video and audio. A trained recruiter from NORVIA’s hiring team will review them shortly afterwards.</li>
+      </ul>
+
+      <p style="color:red;">
+        IMPORTANT: Before continuing with the interview, please return to the survey NOW to provide us with some important insights needed for our research purposes.
+      </p>
+
+      <p>Once you've completed that step, come back here to start the interview by pressing ‘Enter interview session’.</p>
+
+      <button class="btn" onclick="nextPage()">Enter interview session</button>
+    </div>
+  </div>
+
+  <script>
+    // We only have 3 pages now
+    let currentPage = 1;
+    const totalPages = 3;
+
+    function updateProgressBar() {
+      const progress = (currentPage / totalPages) * 100;
+      document.getElementById('progressBar').style.width = `${progress}%`;
+    }
+
+    function nextPage() {
+      const current = document.getElementById(`page${currentPage}`);
+      if (current) current.classList.remove('active-page');
+
+      // Stop at page 3 (no further pages exist)
+      if (currentPage < totalPages) currentPage++;
+
+      const next = document.getElementById(`page${currentPage}`);
+      if (next) next.classList.add('active-page');
+
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // initialize progress bar on load
+    updateProgressBar();
+  </script>
+</body>
+</html>
