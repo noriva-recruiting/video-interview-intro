@@ -154,6 +154,10 @@
 
       updateProgressBar();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          if (currentPage === 3) {
+    window.parent.postMessage('showContinueBtn', '*');
+    } 
     }
 
     // initialize progress bar on load
